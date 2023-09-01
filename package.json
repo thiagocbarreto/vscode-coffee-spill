@@ -9,6 +9,10 @@
   },
   "icon": "cup.png",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagocbarreto/vscode-coffee-spill"
+  },
   "engines": {
     "vscode": "^1.81.0"
   },
