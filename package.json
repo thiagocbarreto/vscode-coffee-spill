@@ -1,0 +1,71 @@
+{
+  "name": "coffee-spill",
+  "displayName": "Coffee Spill",
+  "description": "The \"Coffee Spill\" extension brings the mild chaos of an accidental coffee spill right into your VSCode environment—without the real-world mess!",
+  "version": "0.0.1",
+  "publisher": "thiagobarreto",
+  "author": {
+    "name": "Thiago Barreto"
+  },
+  "icon": "cup.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "coffee-spill.spillSomeCoffee",
+        "title": "Spill some coffee"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Coffee Spill",
+        "properties": {
+          "coffee-spill.minStringLength": {
+            "type": "number",
+            "default": 20,
+            "description": "Minimum length of the generated random string."
+          },
+          "coffee-spill.maxStringLength": {
+            "type": "number",
+            "default": 120,
+            "description": "Maximum length of the generated random string."
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.81.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
